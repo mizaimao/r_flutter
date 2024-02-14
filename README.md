@@ -1,2 +1,3 @@
-# R_Flutter
-R soundboard app implemented in dart and flutter.
+# R Flutter
+
+A Flutter implementation of the soundboard R.app. 
