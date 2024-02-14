@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:window_manager/window_manager.dart';
+
 import 'appData.dart';
 import 'fragmentPage.dart';
 import 'randomizerPage.dart';
@@ -9,8 +11,23 @@ import 'futurePage.dart';
 
 /// Flutter code sample for [NavigationBar].
 
-void main() {
-  //MediaKit.ensureInitialized();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Must add this line.
+  await windowManager.ensureInitialized();
+
+  WindowOptions windowOptions = WindowOptions(
+    size: Size(607, 859),
+    center: true,
+    backgroundColor: Colors.transparent,
+    skipTaskbar: false,
+    titleBarStyle: TitleBarStyle.normal,
+  );
+  windowManager.waitUntilReadyToShow(windowOptions, () async {
+    await windowManager.show();
+    await windowManager.focus();
+  });
+
   runApp(const NavigationBarApp());
 }
 
