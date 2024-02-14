@@ -1,0 +1,1 @@
+flutter pub run rename setAppName --targets ios,android,macos,windows,linux --value "R Collection"

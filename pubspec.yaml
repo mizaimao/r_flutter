@@ -3,7 +3,7 @@ description: A R.app re-implementation using flutter.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 0.6.8
+version: 0.7.1
 
 environment:
   sdk: ^3.1.1
@@ -15,13 +15,15 @@ dependencies:
   audioplayers: ^5.2.1
   url_launcher: ^6.2.4
   provider: ^6.0.0
+  window_manager: ^0.3.8
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.1
-  flutter_launcher_icons: "^0.13.1"
+  flutter_launcher_icons: ^0.13.1
+  rename: ^3.0.1
 
 flutter_launcher_icons:
   android: false
@@ -45,3 +47,6 @@ flutter:
     - assets/icons/
     - assets/media/
     - assets/images/
+
+
+# Use this website to generate rounded corner icons: https://tfin.ch/iosicon.html
