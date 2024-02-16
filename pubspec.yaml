@@ -3,7 +3,7 @@ description: A R.app re-implementation using flutter.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 0.7.1
+version: 0.7.3
 
 environment:
   sdk: ^3.1.1
@@ -25,9 +25,10 @@ dev_dependencies:
   flutter_launcher_icons: ^0.13.1
   rename: ^3.0.1
 
+# macOS uses padding on icons. Correct ratio is 840:1024.
 flutter_launcher_icons:
   android: false
-  ios: true
+  ios: false
   image_path: "assets/icons/icon300.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
   web:
@@ -49,4 +50,4 @@ flutter:
     - assets/images/
 
 
-# Use this website to generate rounded corner icons: https://tfin.ch/iosicon.html
+# Use this website to generate rounded corner icons: https://www.candyicons.com/free-tools/app-icon-assets-generator
