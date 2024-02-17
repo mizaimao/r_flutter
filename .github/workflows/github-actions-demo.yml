@@ -20,5 +20,7 @@ jobs:
         run: flutter pub run flutter_launcher_icons 
       - name: Configure Linux desktop environment
         run: flutter create --platforms=linux .
+      - name: Install Linux build dependencies
+        run: flutter doctor
       - name: Build Linux version
         run: flutter build linux
