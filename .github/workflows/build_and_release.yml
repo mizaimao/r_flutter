@@ -16,16 +16,27 @@ jobs:
             echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
             touch chicken.txt
             zip -r chicken_linux.zip chicken.txt
-
-        - uses: "marvinpinto/action-automatic-releases@latest"
+        - name: Checkout code
+          uses: actions/checkout@v2
+        - name: Get Flutter version
+          id: get-flutter-version
+          uses: zgosalvez/github-actions-get-flutter-version-env@v2
+        - name: Set up Flutter
+          uses: subosito/flutter-action@v1
           with:
-              repo_token: "${{ secrets.GITHUB_TOKEN }}"
-              automatic_release_tag: "latest"
-              prerelease: true
-              title: "Linux release test"
-              files: |
-                chicken_linux.zip
-    
+            flutter-version: ${{ steps.get-flutter-version.outputs.version }}
+        - name: Create Release for Linux
+          uses: actions/create-release@v1
+          id: create_linux_release
+          with:
+            draft: false
+            prerelease: false
+            release_name: ${{ steps.get-flutter-version.outputs }}
+            tag_name: ${{ github.ref }}
+            body_path: CHANGELOG.md
+          env:
+            GITHUB_TOKEN: ${{ github.token }}
+
   Build-Windows-Binaries:
     runs-on: windows-latest
     steps:
