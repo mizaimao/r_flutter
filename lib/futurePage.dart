@@ -103,7 +103,8 @@ class _FuturePageState extends State<FuturePage> {
                             ),
                         ]),
                         Text(
-                            "Version: ${version_number}      Build: ${build_number}",
+                            //"Version: ${version_number}       Build: ${build_number}",
+                            "${appData.versionInfo}",
                             style: TextStyle(fontSize: 10, color: Colors.grey)),
                         SizedBox(
                           height: 80,

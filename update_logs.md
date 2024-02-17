@@ -1,3 +1,13 @@
+## 3.0.18
+*. Added platform info.
+*. Increased composed player instance number from 20 to 50.
+*. Converted variables in "files.dart" as constants.
+
+## 3.0.17
+*. Changed version naming.
+*. Code cleaning.
+*. Added version number display.
+
 ## 0.7.4
 *. Reduced "R" poison time interval.
 *. Fixed poison time interval selection logic.

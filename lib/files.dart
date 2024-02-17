@@ -1,11 +1,12 @@
-String version_number = "3.0.0";
-String build_number = "Flutter web";
+import 'package:flutter/material.dart';
 
-String randomizerBG = "assets/images/light21.jpg";
-String sequencerBG = "assets/images/light21.jpg";
-String fragmentBG = "assets/images/light21.jpg";
-String treasureBG = "assets/images/light21.jpg";
-String futureBG = "assets/images/light21.jpg";
+Color mainThemeColorSeed = Colors.pink.shade50;
+
+const String randomizerBG = "assets/images/light21.jpg";
+const String sequencerBG = "assets/images/light21.jpg";
+const String fragmentBG = "assets/images/light21.jpg";
+const String treasureBG = "assets/images/light21.jpg";
+const String futureBG = "assets/images/light21.jpg";
 
 const Map<int, List<double>> chaosLong = {
   1: [1.2, 2.4],
@@ -24,7 +25,7 @@ const Map<int, List<double>> chaosShort = {
   6: [0.08, 0.12],
 };
 
-var allFragments = {
+const Map<String, String> allFragments = {
   'R': 'R',
   'so': 'so',
   'for tose': 'for_tose',
@@ -140,37 +141,41 @@ var allFragments = {
 };
 
 // Sequencer playlists.
-List<String> surchedPL = [
+const List<String> surchedPL = [
   "surched",
   "what is R",
   "R for everything",
   "hold trunk",
   "stand here"
 ];
-List<String> confusePL = [
+const List<String> confusePL = [
   "likelikoot function",
   "honbanation",
   "vely confuse",
   "but that's okay"
 ];
-List<String> oneplusonePL = [
+const List<String> oneplusonePL = [
   "not always true",
   "as you know",
   "one plus one",
   "nuke like likelikoot"
 ];
-List<String> deepistPL = ["smoothie", "boostra", "deepist"];
-List<String> ememberPL = ["free", "maikin", "don't emember"];
-List<String> simplePL = ["the idea simple", "pretty simple", "seems simple"];
-List<String> lasoPL = [
+const List<String> deepistPL = ["smoothie", "boostra", "deepist"];
+const List<String> ememberPL = ["free", "maikin", "don't emember"];
+const List<String> simplePL = [
+  "the idea simple",
+  "pretty simple",
+  "seems simple"
+];
+const List<String> lasoPL = [
   "long lasso",
   "short lasso",
   "short lasso 2",
   "short lasso 3",
   "short lasso 4"
 ];
-List<String> needodoPL2 = ["theoretical ofcourse", "don't needo"];
-List<String> hugePL = [
+const List<String> needodoPL2 = ["theoretical ofcourse", "don't needo"];
+const List<String> hugePL = [
   "basic idea is",
   "k minimize aic",
   "we we expect",
@@ -179,27 +184,27 @@ List<String> hugePL = [
   "ideal huge data",
   "huge data"
 ];
-List<String> callyPL = [
+const List<String> callyPL = [
   "call y whatever",
   "idky but message",
   "open questions"
 ];
-List<String> meansdoablePL = ["that means", "doable"];
-List<String> operationPL = [
+const List<String> meansdoablePL = ["that means", "doable"];
+const List<String> operationPL = [
   "operate yourself",
   "then have idea",
   "not for just R",
   "don't needo",
   "theoretical ofcourse"
 ];
-List<String> timePL = [
+const List<String> timePL = [
   "times too fa",
   "enough time",
   "make ah notes",
   "big p",
   "nonlinear"
 ];
-List<String> foursixPL = [
+const List<String> foursixPL = [
   "very big right",
   "choose weight",
   "close to six",
@@ -207,7 +212,7 @@ List<String> foursixPL = [
   "in terms of",
   "10k genes"
 ];
-List<String> hiPL = [
+const List<String> hiPL = [
   "for instance ah",
   "minor functions",
   "lid bid high",
@@ -215,7 +220,7 @@ List<String> hiPL = [
   "who know this"
 ];
 // All playlists.
-List<List<String>> allPlaylists = [
+const List<List<String>> allPlaylists = [
   surchedPL,
   confusePL,
   oneplusonePL,
