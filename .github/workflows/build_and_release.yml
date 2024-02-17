@@ -19,19 +19,17 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v2
         - name: Get Flutter version
-          id: get-flutter-version
-          uses: zgosalvez/github-actions-get-flutter-version-env@v2
-        - name: Set up Flutter
-          uses: subosito/flutter-action@v1
-          with:
-            flutter-version: ${{ steps.get-flutter-version.outputs.version }}
+          id: get_flutter_version
+          uses: its404/get-flutter-version@v1.0.0
+        - name: Output flutter version
+          run: echo 'version_number:' ${{ steps.get_flutter_version.outputs.version_number }} ' build_number:' ${{ steps.get_flutter_version.outputs.build_number }}
         - name: Create Release for Linux
           uses: actions/create-release@v1
           id: create_linux_release
           with:
             draft: false
             prerelease: false
-            release_name: ${{ steps.get-flutter-version.outputs }}
+            release_name: ${{ steps.get_flutter_version.outputs.version_number }}
             tag_name: ${{ github.ref }}
             body_path: CHANGELOG.md
           env:
