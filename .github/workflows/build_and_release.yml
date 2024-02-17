@@ -30,7 +30,7 @@ jobs:
           with:
             draft: false
             prerelease: false
-            allowUpdates: true
+            allowUpdates: 'tag_name'
             release_name: $VERSION
             # release_name: Chicken Release Name
             tag_name: "latest"
