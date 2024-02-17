@@ -1,10 +1,10 @@
 name: Build Desktop Binaries and Release
 run-name: Build Windows, Macintosh, Linux executables
-on: [push]
-# on:
-#   push:
-#     branches:
-#       - main
+# on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   upload-release:
