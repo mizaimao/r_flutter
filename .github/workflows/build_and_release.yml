@@ -30,7 +30,6 @@ jobs:
             allowUpdates: true
             artifacts: "chicken_linux.zip"
             bodyFile: "CHANGELOG.md"
-            tag_name: "latest"
 
         #   uses: actions/create-release@v1
         #   id: create_linux_release
