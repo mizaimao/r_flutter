@@ -1,3 +1,6 @@
+## 3.1.1
+*. Merging platform building scripts.
+
 ## 3.1.0
 *. Automatic build enabled for Linux x64
 *. Automatic build enabled for Windows x64
