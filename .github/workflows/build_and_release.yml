@@ -23,14 +23,14 @@ jobs:
         #   run: |
         #     type pubspec.yaml | findstr /r "version:[^^]*" | for /f "tokens=2 delims=: " %%a in ('findstr /r /c:"version:[^^]*" pubspec.yaml') do set APP_VERSION=%%a
         #     echo VERSION=%VERSION% >> %GITHUB_ENV%
-          run: echo $(grep "version:" pubspec.yaml | cut -d" " -f2)=%VERSION% >> %GITHUB_ENV%
+          run: echo VERSION=$(grep "version:" pubspec.yaml | cut -d" " -f2) >> $GITHUB_ENV
         - name: Create Release for Linux
           uses: actions/create-release@v1
           id: create_linux_release
           with:
             draft: false
             prerelease: false
-            release_name: ${{ env.VERSION }}
+            release_name: $VERSION
             # release_name: Chicken Release Name
             tag_name: "latest"
             body_path: CHANGELOG.md
