@@ -18,5 +18,7 @@ jobs:
         run: flutter clean && flutter pub get
       - name: Rebuild icons
         run: flutter pub run flutter_launcher_icons 
+      - name: Configure Linux desktop environment
+        run: flutter create --platforms=linux .
       - name: Build Linux version
         run: flutter build linux
