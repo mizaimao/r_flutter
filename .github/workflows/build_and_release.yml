@@ -18,18 +18,20 @@ jobs:
             zip -r chicken_linux.zip chicken.txt
         - name: Checkout code
           uses: actions/checkout@v2
-        - name: Get Flutter version
-          id: get_flutter_version
-          run: |
-            type pubspec.yaml | findstr /r "version:[^^]*" | for /f "tokens=2 delims=: " %%a in ('findstr /r /c:"version:[^^]*" pubspec.yaml') do set APP_VERSION=%%a
-            echo VERSION=%VERSION% >> %GITHUB_ENV%
+        # - name: Get Flutter version
+        #   id: get_flutter_version
+        #   run: |
+        #     type pubspec.yaml | findstr /r "version:[^^]*" | for /f "tokens=2 delims=: " %%a in ('findstr /r /c:"version:[^^]*" pubspec.yaml') do set APP_VERSION=%%a
+        #     echo VERSION=%VERSION% >> %GITHUB_ENV%
         - name: Create Release for Linux
           uses: actions/create-release@v1
           id: create_linux_release
           with:
             draft: false
             prerelease: false
-            release_name: ${{ env.VERSION }}
+            # release_name: ${{ env.VERSION }}
+            release_name: chicken test
+
             tag_name: ${{ github.ref }}
             body_path: CHANGELOG.md
           env:
