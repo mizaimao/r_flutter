@@ -1,3 +1,7 @@
+## 0.7.4
+*. Reduced "R" poison time interval.
+*. Fixed poison time interval selection logic.
+
 ## 0.7.3
 *. Player speed slider set min to 0.1x.
 *. Added "ah yong ah" as a new poison.

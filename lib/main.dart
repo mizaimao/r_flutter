@@ -9,8 +9,6 @@ import 'sequencerPage.dart';
 import 'treasurePage.dart';
 import 'futurePage.dart';
 
-/// Flutter code sample for [NavigationBar].
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Must add this line.
