@@ -14,6 +14,18 @@ jobs:
             echo "The job was automatically triggered by a ${{ github.event_name }} event."
             echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
             echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+            touch chicken.txt
+            zip -r chicken_linux.zip chicken.txt
+
+        - uses: "marvinpinto/action-automatic-releases@latest"
+          with:
+              repo_token: "${{ secrets.GITHUB_TOKEN }}"
+              automatic_release_tag: "latest"
+              prerelease: true
+              title: "Linux release test"
+              files: |
+                chicken_linux.zip
+    
   Build-Windows-Binaries:
     runs-on: windows-latest
     steps:
@@ -22,5 +34,15 @@ jobs:
             echo "The job was automatically triggered by a ${{ github.event_name }} event."
             echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
             echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-    
+            touch chicken.txt
+            zip -r chicken_windows.zip chicken.txt
 
+        - uses: "marvinpinto/action-automatic-releases@latest"
+          with:
+                repo_token: "${{ secrets.GITHUB_TOKEN }}"
+                automatic_release_tag: "latest"
+                prerelease: true
+                title: "Windows release test"
+                files: |
+                  chicken_windows.zip
+    
