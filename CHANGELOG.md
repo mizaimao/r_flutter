@@ -1,3 +1,7 @@
+## 3.1.2
+
+1. Fixed auto built app icon.
+
 ## 3.1.1
 
 1. Merging platform building scripts.

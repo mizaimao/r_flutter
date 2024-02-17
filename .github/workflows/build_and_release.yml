@@ -124,7 +124,7 @@ jobs:
       - name: App renaming
         run: |
           flutter pub global activate rename
-          flutter pub global run rename setAppName --targets linux --value "R Collection"
+          flutter pub global run rename setAppName --targets linux --value "R_Collection"
       - name: Rebuild icons
         run: flutter pub run flutter_launcher_icons
       - name: Install Linux build dependencies
