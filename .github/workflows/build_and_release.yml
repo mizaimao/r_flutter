@@ -35,26 +35,26 @@ jobs:
       #       asset_path: ./uploads/macos.zip
       #       asset_name: macos.zip
       #       asset_content_type: application/zip
-      - name: upload linux
+      - name: Upload Linux
         id: upload-linux
         uses: actions/upload-release-asset@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./uploads/linux.zip
-          asset_name: linux.zip
+          asset_path: ./uploads/linux_x86_64.zip
+          asset_name: linux_x86_64.zip
           asset_content_type: application/zip
-    #   - name: upload windows
-    #     id: upload-windows
-    #     uses: actions/upload-release-asset@v1.0.1
-    #     env:
-    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #     with:
-    #       upload_url: ${{ steps.create_release.outputs.upload_url }}
-    #       asset_path: ./uploads/windows.zip
-    #       asset_name: windows.zip
-    #       asset_content_type: application/zip
+      - name: Upload Windows
+        id: upload-windows
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./uploads/windows_x86_64.zip
+          asset_name: windows_x86_64.zip
+          asset_content_type: application/zip
 
   build-linux:
     runs-on: ubuntu-latest
@@ -100,3 +100,40 @@ jobs:
         with:
           name: uploads
           path: linux_x86_64.zip
+
+  build-windows:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Info printout
+        run: |
+          echo "The job was automatically triggered by a ${{ github.event_name }} event."
+          echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+          echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Import flutter action package
+        uses: subosito/flutter-action@v2.12.0
+        with:
+          channel: "stable"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Initial cleaning
+        run: flutter clean && flutter pub get
+      - name: Rebuild icons
+        run: flutter pub run flutter_launcher_icons
+      - name: Configure Windows desktop environment
+        run: flutter create --platforms=windows .
+      - name: flutter doctor output
+        run: flutter doctor
+      - name: Build Windows version
+        run: flutter build windows
+      - name: zip win artifact
+        run: |
+          powershell Compress-Archive build/windows/x64/runner/Release windows_x86_64.zip
+      - name: upload windows artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: uploads
+          path: windows_x86_64.zip
