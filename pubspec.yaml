@@ -1,9 +1,9 @@
 name: r_app_online
 description: A R.app re-implementation using flutter.
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 3.1.0
+version: 3.1.2
 
 environment:
   sdk: ^3.1.1
@@ -15,9 +15,8 @@ dependencies:
   flutter_gif: ^0.0.4
   audioplayers: ^5.2.1
   url_launcher: ^6.2.4
-  window_manager: ^0.3.8  # For resizing window size.
-  package_info_plus: ^5.0.1  # For reading version numbers.
-
+  window_manager: ^0.3.8 # For resizing window size.
+  package_info_plus: ^5.0.1 # For reading version numbers.
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +48,4 @@ flutter:
     - assets/icons/
     - assets/media/
     - assets/images/
-
-
 # Use this website to generate rounded corner icons: https://www.candyicons.com/free-tools/app-icon-assets-generator
