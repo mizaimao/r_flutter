@@ -1,0 +1,26 @@
+name: Build Desktop Binaries and Release
+run-name: Build Windows, Macintosh, Linux executables
+on: [push]
+# on:
+#   push:
+#     branches:
+#       - main
+jobs:
+  Build-Linux-Binaries:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Info printout
+          run: |
+            echo "The job was automatically triggered by a ${{ github.event_name }} event."
+            echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+            echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+  Build-Windows-Binaries:
+    runs-on: windows-latest
+    steps:
+        - name: Info printout
+          run: |
+            echo "The job was automatically triggered by a ${{ github.event_name }} event."
+            echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+            echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+    
+
