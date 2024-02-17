@@ -71,12 +71,12 @@ class PlayerManager {
     double low = 0.0;
     double high = 0.0;
 
-    if (fragName.isEmpty || fragName != "so") {
-      low = chaosLong[chaosLevel]!.first;
-      high = chaosLong[chaosLevel]!.last;
-    } else {
+    if (fragName == "so" || fragName == "R") {
       low = chaosShort[chaosLevel]!.first;
       high = chaosShort[chaosLevel]!.last;
+    } else {
+      low = chaosLong[chaosLevel]!.first;
+      high = chaosLong[chaosLevel]!.last;
     }
 
     List<int> randomFragIndices = getRandomSequenceIndex(repeats);
