@@ -1,3 +1,7 @@
+## 0.7.3
+*. Player speed slider set min to 0.1x.
+*. Added "ah yong ah" as a new poison.
+
 ## 0.7.2
 *. Flutter upgraded to 3.19.0.
 *. Upgraded icon size to conform Apple's design guide.
@@ -20,8 +24,8 @@
 *. Change to Apple icons https://api.flutter.dev/flutter/cupertino/CupertinoIcons-class.html#constants
 *. New App icon design.  
 *. Use svg as background image
-*. Add "ah yong ah" as a poison
+*. ~Add "ah yong ah" as a poison~
 
 
 ## Issues
-*. Play speed should be >= 0.1
+*. ~Play speed should be >= 0.1~

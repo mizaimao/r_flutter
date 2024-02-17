@@ -134,11 +134,12 @@ class _FragmentPageState extends State<FragmentPage> {
                   Slider(
                     value: playSpeed,
                     max: 2.0,
-                    divisions: 20,
-                    label: playSpeed.toString(),
+                    min: 0.1,
+                    divisions: 19,
+                    label: playSpeed.toStringAsFixed(1),
                     onChanged: (double value) {
                       setState(() {
-                        playSpeed = value;
+                        playSpeed = double.parse(value.toStringAsFixed(1));
                         sPlayer.adjustSpeed(value);
                         appData.playSpeed = value;
                       });

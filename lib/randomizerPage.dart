@@ -26,14 +26,17 @@ const List<int> predefinedChaos = [1, 2, 3, 4, 5, 6];
 List<double> chaosPresets = [1.0, 3.0, 5.0, 1.0, 3.0, 4.0, 5.0, 5.0];
 List<double> repeatPresets = [4.0, 5.0, 7.0, 2.0, 7.0, 7.0, 10.0, 10.0];
 
-const List<String> predefinedPosions = [
-  "so",
-  "R",
-  "suppose",
-  "oaic",
-  "for tose",
-  "finally",
+// [Display Name, Fragment Name]
+const List<List<String>> predefinedPoisons = [
+  ["so", "so"],
+  ["R", "R"],
+  ["yong", "ah yong ah"],
+  ["suppose", "suppose"],
+  ["oaic", "oaic"],
+  ["tose", "for tose"],
+  ["finally", "finally"],
 ];
+
 const double gridIconSize = 64;
 
 class RandomizerPage extends StatefulWidget {
@@ -47,7 +50,7 @@ class RandomizerPage extends StatefulWidget {
 class _RandomizerPageState extends State<RandomizerPage> {
   late double chaosLevel = 0;
   late double repeatLevel = 0;
-  late List<bool> selectedPosons;
+  late List<bool> selectedPoisons;
   late AppData appData;
   late PlayerManager pm;
   late SinglePlayer sPlayer;
@@ -59,8 +62,8 @@ class _RandomizerPageState extends State<RandomizerPage> {
     chaosLevel = appData.chaosLevel;
     repeatLevel = appData.repeatLevel;
 
-    selectedPosons = <bool>[
-      for (int i = 0; i < predefinedPosions.length; i++)
+    selectedPoisons = <bool>[
+      for (int i = 0; i < predefinedPoisons.length; i++)
         i == appData.poisonIndex
     ];
   }
@@ -247,7 +250,8 @@ class _RandomizerPageState extends State<RandomizerPage> {
                                     predefinedChaos[chaosLevel.round()],
                                     predefinedRepeats[repeatLevel.round()],
                                     fragName:
-                                        predefinedPosions[appData.poisonIndex]);
+                                        predefinedPoisons[appData.poisonIndex]
+                                            .last);
                               },
                               icon: ImageIcon(
                                   AssetImage("assets/icons/car1.png"),
@@ -340,7 +344,8 @@ class _RandomizerPageState extends State<RandomizerPage> {
                                   predefinedChaos[chaosLevel.round()],
                                   predefinedRepeats[repeatLevel.round()],
                                   fragName:
-                                      predefinedPosions[appData.poisonIndex]);
+                                      predefinedPoisons[appData.poisonIndex]
+                                          .last);
                             },
                             icon: ImageIcon(AssetImage("assets/icons/car2.png"),
                                 color: theme.colorScheme.primary,
@@ -357,7 +362,8 @@ class _RandomizerPageState extends State<RandomizerPage> {
                                   predefinedChaos[chaosLevel.round()],
                                   predefinedRepeats[repeatLevel.round()],
                                   fragName:
-                                      predefinedPosions[appData.poisonIndex]);
+                                      predefinedPoisons[appData.poisonIndex]
+                                          .last);
                             },
                             icon: ImageIcon(AssetImage("assets/icons/car4.png"),
                                 color: theme.colorScheme.primary,
@@ -374,7 +380,8 @@ class _RandomizerPageState extends State<RandomizerPage> {
                                   predefinedChaos[chaosLevel.round()],
                                   predefinedRepeats[repeatLevel.round()],
                                   fragName:
-                                      predefinedPosions[appData.poisonIndex]);
+                                      predefinedPoisons[appData.poisonIndex]
+                                          .last);
                             },
                             icon: ImageIcon(AssetImage("assets/icons/car6.png"),
                                 color: theme.colorScheme.primary,
@@ -450,8 +457,8 @@ class _RandomizerPageState extends State<RandomizerPage> {
                     onPressed: (int index) {
                       setState(() {
                         // The button that is tapped is set to true, and the others to false.
-                        for (int i = 0; i < selectedPosons.length; i++) {
-                          selectedPosons[i] = i == index;
+                        for (int i = 0; i < selectedPoisons.length; i++) {
+                          selectedPoisons[i] = i == index;
                         }
                         appData.poisonIndex = index;
                       });
@@ -465,9 +472,10 @@ class _RandomizerPageState extends State<RandomizerPage> {
                       minHeight: 42.0,
                       minWidth: 65.0,
                     ),
-                    isSelected: selectedPosons,
+                    isSelected: selectedPoisons,
                     children: [
-                      for (String poison in predefinedPosions) Text(poison)
+                      for (List<String> poisonPair in predefinedPoisons)
+                        Text(poisonPair.first)
                     ],
                   ),
                 ],
