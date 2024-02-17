@@ -78,6 +78,10 @@ jobs:
         run: flutter create --platforms=macos .
       - name: Initial cleaning
         run: flutter clean && flutter pub get
+      - name: App renaming
+        run: |
+          flutter pub global activate rename
+          flutter pub global run rename setAppName --targets macos --value "R Collection"
       - name: Rebuild icons
         run: flutter pub run flutter_launcher_icons
       - name: flutter doctor output
@@ -117,6 +121,10 @@ jobs:
         run: flutter create --platforms=linux .
       - name: Initial cleaning
         run: flutter clean && flutter pub get
+      - name: App renaming
+        run: |
+          flutter pub global activate rename
+          flutter pub global run rename setAppName --targets linux --value "R Collection"
       - name: Rebuild icons
         run: flutter pub run flutter_launcher_icons
       - name: Install Linux build dependencies
@@ -161,6 +169,10 @@ jobs:
         run: flutter create --platforms=windows .
       - name: Initial cleaning
         run: flutter clean && flutter pub get
+      - name: App renaming
+        run: |
+          flutter pub global activate rename
+          flutter pub global run rename setAppName --targets windows --value "R Collection"
       - name: Rebuild icons
         run: flutter pub run flutter_launcher_icons
       - name: flutter doctor output
