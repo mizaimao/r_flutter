@@ -1,9 +1,10 @@
 name: Build macOS Binary
 run-name: Build macOS
-on: [push]
-  # push:
-  #   branches:
-  #     - main
+# on: [push]
+on:
+  push:
+    branches:
+    - main
 jobs:
   Explore-GitHub-Actions:
     runs-on: macos-latest
@@ -23,7 +24,7 @@ jobs:
         run: flutter clean && flutter pub get
       - name: Rebuild icons
         run: flutter pub run flutter_launcher_icons 
-      - name: Configure Linux desktop environment
+      - name: Configure macOS desktop environment
         run: flutter create --platforms=macos .
       - name: flutter doctor output
         run: flutter doctor
