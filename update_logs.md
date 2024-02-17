@@ -1,3 +1,6 @@
+## 3.1.0
+*. Automatic build enabled for Linux
+
 ## 3.0.18
 *. Added platform info.
 *. Increased composed player instance number from 20 to 50.
