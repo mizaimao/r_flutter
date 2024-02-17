@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:window_manager/window_manager.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import 'appData.dart';
 import 'fragmentPage.dart';
@@ -8,6 +9,7 @@ import 'randomizerPage.dart';
 import 'sequencerPage.dart';
 import 'treasurePage.dart';
 import 'futurePage.dart';
+import 'utils.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,13 +28,13 @@ void main() async {
     await windowManager.focus();
   });
 
-  runApp(const NavigationBarApp());
+  runApp(const RFlutterApp());
 }
 
 class AppState extends ChangeNotifier {}
 
-class NavigationBarApp extends StatelessWidget {
-  const NavigationBarApp({super.key});
+class RFlutterApp extends StatelessWidget {
+  const RFlutterApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +57,23 @@ class NavigationInterface extends StatefulWidget {
 class _NavigationInterfaceState extends State<NavigationInterface> {
   int currentPageIndex = 0;
   AppData appData = AppData();
-  //var appState = context.watch<AppState>();
+  // late final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+  _NavigationInterfaceState() {
+    getVersionInfo();
+  }
+
+  void getVersionInfo() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    String platformInfo = getPlatformInfo();
+    String appName = packageInfo.appName; // "R Collection"
+    String version = packageInfo.version; // "0.7.5"
+    // String packageName = packageInfo.packageName; // "com.example.r3"
+    // String buildNumber = packageInfo.buildNumber; // "0.7.5"
+
+    appData.versionInfo =
+        "${appName}       version: ${version}       Platform: ${platformInfo}";
+  }
 
   @override
   Widget build(BuildContext context) {

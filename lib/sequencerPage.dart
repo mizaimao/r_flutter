@@ -38,12 +38,6 @@ class SequencerPage extends StatelessWidget {
           },
           child: Text(playlist.join(', '),
               style: TextStyle(), textAlign: TextAlign.left)));
-      // widgetList.add(
-      //   Divider(
-      //     thickness: 0.1,
-      //     color: Colors.grey,
-      //   ),
-      // );
     }
     return widgetList;
   }

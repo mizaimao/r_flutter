@@ -4,25 +4,27 @@ import 'package:flutter/material.dart';
 import 'playerManager.dart';
 
 class AppData {
-  PlayerManager pm = PlayerManager(20);
+  // Version info.
+  String versionInfo = "unknown";
 
-  // Randomizer settings
+  // arg is how many player instances to create.
+  PlayerManager pm = PlayerManager(50);
+
+  // Randomizer settings.
   double chaosLevel = 0;
   double repeatLevel = 0;
   int poisonIndex = 0;
 
-  // Sequencer settings
+  // Sequencer settings.
 
-  // Fragment settings
+  // Fragment settings.
   bool brainWashToggle = false;
   double playSpeed = 1.0;
   int colCount = 2;
 
-  // Future page settings
+  // Treasure settings.
+
+  // Future page settings.
   bool enableButton = false;
   Color rButtonColor = Colors.black;
-
-  void updateChaosRepeats(double chaosLevel, double repeatLevel) {
-    // TODO: implement updateChaosRepeats
-  }
 }
