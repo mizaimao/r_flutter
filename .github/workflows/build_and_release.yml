@@ -57,7 +57,7 @@ jobs:
           asset_content_type: application/zip
 
   build-macos:
-    runs-on: macos-latest
+    runs-on: macos-14 # 14 is an M1 host: https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners
     strategy:
       matrix:
         node-version: [12.x]
@@ -84,10 +84,10 @@ jobs:
         run: flutter doctor
       - name: Build macOS version
         run: flutter build macos
-      - name: zip macos artifact
+      - name: Post build zipping
         run: |
-          zip -r macos out
-      - name: upload macos artifact
+          zip -r macos build/macos/Build/Products/Release/*.app
+      - name: Upload macos artifact
         uses: actions/upload-artifact@v1
         with:
           name: uploads
