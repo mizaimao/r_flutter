@@ -1,7 +1,9 @@
 name: Build Windows x86_64 Binary
 run-name: Build Windows x86_64
 on:
-  push
+  push:
+    branches:
+      - main
 jobs:
   Explore-GitHub-Actions:
     runs-on: windows-latest

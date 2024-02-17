@@ -1,5 +1,6 @@
 ## 3.1.0
-*. Automatic build enabled for Linux
+*. Automatic build enabled for Linux x64
+*. Automatic build enabled for Windows x64
 
 ## 3.0.18
 *. Added platform info.
