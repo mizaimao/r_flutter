@@ -1,9 +1,13 @@
 name: Build Linux x86_64 Binary
 run-name: Build Linux x86_64
-on: [push]
+# on: [push]
   # push:
   #   branches:
   #     - main
+on:
+  push:
+    branches:
+      - main
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
