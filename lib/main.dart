@@ -11,6 +11,21 @@ import 'treasurePage.dart';
 import 'futurePage.dart';
 import 'utils.dart';
 
+// Runtime variables shared across pages.
+AppData appData = AppData();
+
+void getVersionInfo() async {
+  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+  String platformInfo = getPlatformInfo();
+  String appName = packageInfo.appName; // "R Collection"
+  String version = packageInfo.version; // "0.7.5"
+  // String packageName = packageInfo.packageName; // "com.example.r3"
+  // String buildNumber = packageInfo.buildNumber; // "0.7.5"
+
+  appData.versionInfo =
+      "${appName}       version: ${version}       Platform: ${platformInfo}";
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Must add this line.
@@ -27,6 +42,7 @@ void main() async {
     await windowManager.show();
     await windowManager.focus();
   });
+  getVersionInfo();
 
   runApp(const RFlutterApp());
 }
@@ -56,24 +72,7 @@ class NavigationInterface extends StatefulWidget {
 
 class _NavigationInterfaceState extends State<NavigationInterface> {
   int currentPageIndex = 0;
-  AppData appData = AppData();
-  // late final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-
-  _NavigationInterfaceState() {
-    getVersionInfo();
-  }
-
-  void getVersionInfo() async {
-    PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    String platformInfo = getPlatformInfo();
-    String appName = packageInfo.appName; // "R Collection"
-    String version = packageInfo.version; // "0.7.5"
-    // String packageName = packageInfo.packageName; // "com.example.r3"
-    // String buildNumber = packageInfo.buildNumber; // "0.7.5"
-
-    appData.versionInfo =
-        "${appName}       version: ${version}       Platform: ${platformInfo}";
-  }
+  _NavigationInterfaceState() {}
 
   @override
   Widget build(BuildContext context) {

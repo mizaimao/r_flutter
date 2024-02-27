@@ -1,7 +1,11 @@
+## 3.1.3
+
+1. Moved AppData initialization and version retrieval before calling app.
+
 ## 3.1.2
 
 1. Fixed auto built app icons (macOS and Windows).
-2. Fixed auto built app names (Linux).
+1. Fixed auto built app names (Linux).
 
 ## 3.1.1
 
